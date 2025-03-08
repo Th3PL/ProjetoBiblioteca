@@ -60,7 +60,7 @@ public class Ususario {
         return "Ususario{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", livroEmprestados=" + livroEmprestados +
+                ", livroEmprestados=" + livroEmprestados.toString() +
                 '}';
     }
 }

@@ -8,7 +8,6 @@ public class Biblioteca {
 
     public Biblioteca() {
         this.livros = new ArrayList<>();
-        this.livros = new ArrayList<>();
         this.ususarios = new ArrayList<>();
         this.emprestimos = new ArrayList<>();
     }
@@ -55,8 +54,20 @@ public class Biblioteca {
     }
 
     public void emprestarLivro(int idLivro, int idUsusario) {
-        Livro livro = this.livros.get(idLivro);
-        Ususario ususario = this.ususarios.get(idUsusario);
+        Livro livro = new Livro();
+        Ususario ususario = new Ususario();
+        for(Livro i : this.livros){
+            if(i.getId() == idLivro){
+                livro = i;
+            }
+        }
+
+        for(Ususario i : this.ususarios){
+            if(i.getId() == idUsusario){
+                ususario = i;
+            }
+        }
+
         ususario.pegarLivroEmprestado(livro);
     }
 
