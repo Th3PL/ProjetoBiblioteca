@@ -13,9 +13,6 @@ public class Biblioteca {
     }
 
     public Biblioteca(List<Livro> livros, List<Emprestimo> emprestimos, List<Ususario> ususarios) {
-        this.livros = livros;
-        this.emprestimos = emprestimos;
-        this.ususarios = ususarios;
         this.livros = new ArrayList<>();
         this.ususarios = new ArrayList<>();
         this.emprestimos = new ArrayList<>();
@@ -71,8 +68,20 @@ public class Biblioteca {
         ususario.pegarLivroEmprestado(livro);
     }
 
-    public void devolverLivro(int idLivro) {
-        Livro livro = this.livros.get(idLivro);
-        livro.devolver();
+    public void devolverLivro(int idLivro, int idUsusario) {
+        Livro livro = new Livro();
+        Ususario ususario = new Ususario();
+        for(Livro i : this.livros){
+            if(i.getId() == idLivro){
+                livro = i;
+            }
+        }
+
+        for(Ususario i : this.ususarios){
+            if(i.getId() == idUsusario){
+                ususario = i;
+            }
+        }
+        ususario.devolverLivroEmprestado(livro);
     }
 }

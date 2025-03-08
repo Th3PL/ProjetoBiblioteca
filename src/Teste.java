@@ -20,7 +20,12 @@ public class Teste {
 
         biblioteca.emprestarLivro(1, 1);
         System.out.println(p1.toString());
-//        biblioteca.emprestarLivro(1, 2);
+        biblioteca.emprestarLivro(1, 2);
+        System.out.println(p2.toString());
+        biblioteca.devolverLivro(1,1);
+        System.out.println(p1.toString());
+        biblioteca.emprestarLivro(1, 2);
+        System.out.println(p2.toString());
 
     }
 }
