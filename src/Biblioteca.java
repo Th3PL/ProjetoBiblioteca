@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,6 +6,8 @@ public class Biblioteca {
     private List<Livro> livros;
     private List<Ususario> ususarios;
     private List<Emprestimo> emprestimos;
+
+    Emprestimo emprestimo;
 
     public Biblioteca() {
         this.livros = new ArrayList<>();
@@ -34,8 +37,13 @@ public class Biblioteca {
         this.ususarios = ususarios;
     }
 
-    public List<Emprestimo> getEmprestimos() {
-        return emprestimos;
+    public String getEmprestimos() {
+        String retorno = "";
+
+        for(Emprestimo i : this.emprestimos){
+            retorno += "\n" + i.toString();
+        }
+        return retorno;
     }
 
     public void setEmprestimos(List<Emprestimo> emprestimos) {
@@ -51,6 +59,7 @@ public class Biblioteca {
     }
 
     public void emprestarLivro(int idLivro, int idUsusario) {
+        LocalDateTime data = LocalDateTime.now();
         Livro livro = new Livro();
         Ususario ususario = new Ususario();
         for(Livro i : this.livros){
@@ -65,7 +74,10 @@ public class Biblioteca {
             }
         }
 
+        emprestimo = new Emprestimo(livro, data, ususario);
+        emprestimos.add(emprestimo);
         ususario.pegarLivroEmprestado(livro);
+
     }
 
     public void devolverLivro(int idLivro, int idUsusario) {
@@ -75,6 +87,7 @@ public class Biblioteca {
             if(i.getId() == idLivro){
                 livro = i;
             }
+
         }
 
         for(Ususario i : this.ususarios){
@@ -82,6 +95,7 @@ public class Biblioteca {
                 ususario = i;
             }
         }
+        emprestimo.calcularMulta();
         ususario.devolverLivroEmprestado(livro);
     }
 }

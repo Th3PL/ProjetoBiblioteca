@@ -27,5 +27,7 @@ public class Teste {
         biblioteca.emprestarLivro(1, 2);
         System.out.println(p2.toString());
 
+        System.out.println(biblioteca.getEmprestimos());
+
     }
 }

@@ -19,6 +19,13 @@ public class Emprestimo {
         this.ususario = ususario;
     }
 
+    public Emprestimo(Livro livro, LocalDateTime dataEmprestimo, Ususario ususario) {
+        this.livro = livro;
+        this.datadevolucao = dataEmprestimo.plusDays(7);
+        this.dataEmprestimo = dataEmprestimo;
+        this.ususario = ususario;
+    }
+
     public LocalDateTime getDataEmprestimo() {
         return dataEmprestimo;
     }
@@ -47,6 +54,7 @@ public class Emprestimo {
         return livro;
     }
 
+
     public void setLivro(Livro livro) {
         this.livro = livro;
     }
@@ -59,5 +67,15 @@ public class Emprestimo {
         } else{
             return 0.0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Emprestimo{" +
+                "livro=" + livro +
+                ", ususario=" + ususario +
+                ", dataEmprestimo=" + dataEmprestimo +
+                ", datadevolucao=" + datadevolucao +
+                '}';
     }
 }
