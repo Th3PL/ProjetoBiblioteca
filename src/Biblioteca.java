@@ -98,4 +98,15 @@ public class Biblioteca {
         emprestimo.calcularMulta();
         ususario.devolverLivroEmprestado(livro);
     }
+
+    public Emprestimo encontrarEmprestimoPorLivro(int id) {
+        Livro l = new Livro();
+        for (Emprestimo e : emprestimos) {
+            l = e.getLivro();
+            if (l.getId() == id) {
+                return e;
+            }
+        }
+        return null;
+    }
 }

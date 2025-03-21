@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/usr/bin/gnome-terminal", line 9, in <module>
+    from gi.repository import GLib, Gio
+  File "/usr/lib/python3/dist-packages/gi/__init__.py", line 42, in <module>
+    from . import _gi
+ImportError: cannot import name '_gi' from partially initialized module 'gi' (most likely due to a circular import) (/usr/lib/python3/dist-packages/gi/__init__.py)

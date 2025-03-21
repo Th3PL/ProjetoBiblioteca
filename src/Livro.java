@@ -66,4 +66,12 @@ public class Livro {
                 "titulo='" + titulo + '\'' +
                 '}';
     }
+
+    public String isDisponivel() {
+        if (disponivel){
+            return "Livro Disponivel";
+        }else{
+            return "Livro indisponivel";
+        }
+    }
 }

@@ -7,21 +7,21 @@ public class Emprestimo {
     private Livro livro;
     private Ususario ususario;
     private LocalDateTime dataEmprestimo;
-    private LocalDateTime datadevolucao;
+    private LocalDateTime dataDevolucao;
 
     public Emprestimo() {
     }
 
     public Emprestimo(Livro livro, LocalDateTime datadevolucao, LocalDateTime dataEmprestimo, Ususario ususario) {
         this.livro = livro;
-        this.datadevolucao = datadevolucao;
+        this.dataDevolucao = datadevolucao;
         this.dataEmprestimo = dataEmprestimo;
         this.ususario = ususario;
     }
 
     public Emprestimo(Livro livro, LocalDateTime dataEmprestimo, Ususario ususario) {
         this.livro = livro;
-        this.datadevolucao = dataEmprestimo.plusDays(7);
+        this.dataDevolucao = dataEmprestimo.plusDays(7);
         this.dataEmprestimo = dataEmprestimo;
         this.ususario = ususario;
     }
@@ -35,11 +35,11 @@ public class Emprestimo {
     }
 
     public LocalDateTime getDatadevolucao() {
-        return datadevolucao;
+        return dataDevolucao;
     }
 
-    public void setDatadevolucao(LocalDateTime datadevolucao) {
-        this.datadevolucao = datadevolucao;
+    public void setDataDevolucao(LocalDateTime datadevolucao) {
+        this.dataDevolucao = datadevolucao;
     }
 
     public Ususario getUsusario() {
@@ -60,7 +60,7 @@ public class Emprestimo {
     }
 
     public Double calcularMulta(){
-        double diferenca = ChronoUnit.DAYS.between(datadevolucao, LocalDateTime.now());
+        double diferenca = ChronoUnit.DAYS.between(dataDevolucao, LocalDateTime.now());
         double multa = diferenca * 2;
         if (diferenca > 10){
             return multa;
@@ -75,7 +75,7 @@ public class Emprestimo {
                 "livro=" + livro +
                 ", ususario=" + ususario +
                 ", dataEmprestimo=" + dataEmprestimo +
-                ", datadevolucao=" + datadevolucao +
+                ", datadevolucao=" + dataDevolucao +
                 '}';
     }
 }

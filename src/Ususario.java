@@ -37,6 +37,14 @@ public class Ususario {
         this.nome = nome;
     }
 
+    public String getLivrosEmprestados(){
+        String retorno = "";
+        for (Livro livro : livroEmprestados){
+            retorno += livro.getTitulo() + " - ";
+        }
+        return retorno;
+    }
+
     public void pegarLivroEmprestado(Livro livro) {
         try {
             livro.epmrestar();
